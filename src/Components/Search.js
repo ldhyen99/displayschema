@@ -23,7 +23,6 @@ class Search extends Component {
                <EditUser changeEditUserStatus={() => this.props.changeEditUserStatus()}
                editFAQObject={this.props.editFAQObject}
                fetchFAQEditInfo={(info => this.fetchFAQEditInfo(info))}
-
                />
            )
         } 

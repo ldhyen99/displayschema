@@ -19,7 +19,7 @@ class FirstSchema extends Component {
                 <span>           &#125;</span><br/>
                 <span>   &#125;</span><br/>
                 <div className="btn btn-warning edit" onClick={() => this.handleEditButton()} >
-                <i className="fa fa-edit">Edit</i>
+                <i className="fa fa-edit">Sửa</i>
                 </div> 
                 
         

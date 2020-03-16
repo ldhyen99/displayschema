@@ -32,7 +32,7 @@ class EditUser extends Component {
                   <div className="col">
                     <form method="post">
                     <div className="card text-white bg-warning mb-3">
-                        <div className="card-header text-center text-uppercase">Thêm mới</div>
+                        <div className="card-header text-center text-uppercase">Sửa</div>
                         <div className="card-body text-primary">
                         <div className="form-group">
                             <input onChange={(event) => this.checkChange(event)} defaultValue={this.props.editFAQObject.name} name="name" type="text" className="form-control"  aria-describedby="helpId" placeholder="Nhập câu hỏi" />

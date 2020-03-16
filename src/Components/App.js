@@ -1,12 +1,18 @@
 import React,{ Component } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import '../Components/App';
-import Header from './Header';
 import ImportSchema from './ImportSchema';
 import AddNew from './AddNew';
 import DataFAQ from './dataFAQ.json'
+import DataRating from './rating.json'
 import Search from './Search';
 import temp from './temp';
+import Header from './Header';
+import HeaderRating from './HeaderRating';
+import ImportRating from './ImportRating';
+import FormEditRating from './FormEditRating';
+
+
 
 
 class App extends Component {
@@ -15,9 +21,11 @@ class App extends Component {
     this.state = {
         fetchData: [],
         fetchFirstData:temp,
-        handleComma:true,
         editUserStatus:false,
-        editFAQObject: {}
+        editFAQObject: {},
+        fetchRating:DataRating,
+        editRatingStatus:false,
+        editRatingObject: {}
     }
 }
 
@@ -27,7 +35,6 @@ fetchFAQEditInfo = (info) => {
     if(value.faqId === info.id) {
       value.name=info.name
       value.text=info.text
-
     }
    })
   localStorage.setItem('faqData',JSON.stringify(this.state.fetchFirstData))  
@@ -98,10 +105,34 @@ downloadNewDataUser = (faqQues,faqAns) => {
    localStorage.setItem('faqData',JSON.stringify(saveItemToData))
 
 }
+// Rating
+changeEditRatingStatus = () => {
+  this.setState({
+    editRatingStatus:!(this.state.editRatingStatus)
+  })
+}
 
-
+handleEditRating = (rat) => {
+  console.log('Connect');
+  console.log(rat);
+  this.setState({
+    editRatingObject:rat
+  })
+}
+fetchRatingEditInfo = (info) => {
+  console.log('Thong tin da sua: ' + info.name)
+  this.state.fetchRating.forEach((value,key) => {
+    if(value.idRating === info.idRating) {
+      value.bestRating=info.bestRating
+      value.ratingCount=info.ratingCount
+      value.ratingValue=info.ratingValue
+      value.image=info.image
+      value.name=info.name
+      value.description=info.description
+    }
+   })
+}
   render() {
-    console.log("fetch "+ this.state.fetchData.length)
   return (
     <div>
       <Header/>
@@ -115,9 +146,6 @@ downloadNewDataUser = (faqQues,faqAns) => {
             changeEditUserStatus={() => this.changeEditUserStatus()}
             editFAQObject={this.state.editFAQObject}
             />
-
-            <div className="col-12"> <hr/></div>
-
             <ImportSchema dataFAQProps={this.state.fetchData}
             handleDeleteButton={(idFAQ) => this.handleDeleteButton(idFAQ)}
             changeEditUserStatus={() => this.changeEditUserStatus()}
@@ -129,6 +157,23 @@ downloadNewDataUser = (faqQues,faqAns) => {
               </div>
               </div>
             </div>
+            <HeaderRating/>
+            <div className="searchForm">
+          <div className="container">
+            <div className="row">
+              <FormEditRating changeEditRatingStatus={() => this.changeEditRatingStatus()}
+              editRatingStatus = {this.state.editRatingStatus}
+              editRatingObject={this.state.editRatingObject}
+              fetchRatingEditInfo={(info)=>this.fetchRatingEditInfo(info)}
+              />
+              <ImportRating dataRating={this.state.fetchRating}
+              changeEditRatingStatus={() => this.changeEditRatingStatus()}
+              handleEditRating={(rat) => this.handleEditRating(rat)}
+              />
+             
+              </div>
+              </div>
+              </div>
     </div>
   );
   }

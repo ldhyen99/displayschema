@@ -21,9 +21,10 @@ class AddNew extends Component {
     }  
     render() {
         return (
+           
             <div className="col-3">
             <form method="post">
-            <div className="card border-primary mb-3">
+            <div className="card border-primary mt-5">
                 <div className="card-header text-center text-uppercase">Thêm mới</div>
                 <div className="card-body text-primary">
                 <div className="form-group">
@@ -39,7 +40,7 @@ class AddNew extends Component {
             </div>
             </form>
             </div>
-
+           
 
         );
     }

@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
 import DisplaySchema from './DisplaySchema';
 import FirstSchema from './FirstSchema';
+// import {NavLink,Link} from "react-router-dom";
+
 
 
 class ImportSchema extends Component {
-   
-
+     
     handleEditButton = () => {
         this.props.handleEditFAQ()
         this.props.changeEditUserStatus()
     }
+
     displayData = () => this.props.dataFAQProps.map((value,index) => (
         <DisplaySchema 
         handleEditFAQ={(faq) => this.props.handleEditFAQ(value)}
@@ -35,11 +37,15 @@ class ImportSchema extends Component {
         />
       )) 
     
-   
+      
     render() {
+  
         return (
-            <div className="col-9 inside" >
-                <div className="form-group">
+                <div className="col-9 ">
+                    <header className="header-markup">
+                    <h1>Schema Markup</h1>
+                    </header>
+                <div className="form-group inside" >
                 <pre>
                     <span>&lt;script type="application/ld+json"&gt;</span> <br/>
                     <span>	&#123;</span> <br></br>
@@ -47,22 +53,8 @@ class ImportSchema extends Component {
                     <span>    "@type": "FAQPage",</span> <br/>
                     <span>    "mainEntity":</span>
                     <span> &#91;</span> 
-
-                    {/* <span>	&#123;</span> <br></br>
-
-                <span>       "@type": "Question",</span><br/>
-                <span>           "name": "{this.props.fetchName}",</span><br/>
-                <span>           "acceptedAnswer": </span><span>&#123;</span><br/>
-                <span>            "@type": "Answer",</span><br/>
-                <span className="setWidth">       "text": "{this.props.fetchText}"</span><br/>
-                <span>           &#125;</span><br/>
-                <span>   &#125;</span><br/>
-                <div className="btn btn-warning edit" onClick={() => this.handleEditButton()} >
-                <i className="fa fa-edit">Edit</i>
-                </div>  */}
                 {this.displayFirstData()}
                 {this.displayData()}
-
                     <span>&#93;</span>
                     <span>&#125;</span><br/>
                     <span>&lt;/script&gt;</span><br/>
@@ -70,7 +62,8 @@ class ImportSchema extends Component {
              
               </div>
         </div>
-        
+              
+          
         );
     }
 }
