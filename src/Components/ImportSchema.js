@@ -45,7 +45,7 @@ class ImportSchema extends Component {
                     <header className="header-markup">
                     <h1>Schema Markup</h1>
                     </header>
-                <div className="form-group inside" >
+                <div className="form-group inside border border-primary bg-dark" >
                 <pre>
                     <span>&lt;script type="application/ld+json"&gt;</span> <br/>
                     <span>	&#123;</span> <br></br>
