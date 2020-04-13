@@ -35,7 +35,7 @@ class ImportRating extends Component {
                     </header>
                     {/* {this.displayEditForm()} */}
 
-                <div className="form-group inside" >
+                <div className="form-group inside border border-primary bg-dark" >
                 <pre>
                     <span>&lt;script type="application/ld+json"&gt;</span> <br/>
                     <span>&#123;</span> <br></br>
