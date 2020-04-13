@@ -19,6 +19,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+pre {
+  color: white;
+}
 
 #mainNav {
   border-color: rgba(34, 34, 34, 0.05);
