@@ -20,7 +20,7 @@ code {
     monospace;
 }
 pre {
-  color: white;
+  color: white!important;
 }
 
 #mainNav {
