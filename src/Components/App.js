@@ -11,6 +11,7 @@ import Header from './Header';
 import HeaderRating from './HeaderRating';
 import ImportRating from './ImportRating';
 import FormEditRating from './FormEditRating';
+import ImportHTML from './ImportHTML';
 
 
 
@@ -154,6 +155,10 @@ fetchRatingEditInfo = (info) => {
             />
               <AddNew 
               downloadNewDataUser={(faqQues,faqAns) => this.downloadNewDataUser(faqQues,faqAns)}/>
+                 <ImportHTML fetchFirstData = {(info) => this.fetchFAQEditInfo(info)}
+               handleFirstSchema={this.state.fetchFirstData}
+               dataFAQProps={this.state.fetchData}
+              />
               </div>
               </div>
             </div>
